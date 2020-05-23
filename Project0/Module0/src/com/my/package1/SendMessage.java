@@ -18,11 +18,15 @@ public class SendMessage {
         //4、将上述字节输入流 is 装饰为字符输入流
         //   再将字符输入流装饰为可一次读取一行的缓冲输入流 br
         BufferedReader br = new BufferedReader(new InputStreamReader(is,"UTF-8"));
-        //5、通过输入流 br 读取一行文字，并赋值给变量text
+        /* 5、通过输入流 br 读取一行文字，并赋值给变量text */
         String text = br.readLine();
         //如果读取n行内容，重复执行n次step5即可
         //6、将读取的结果打印输出
         System.out.println(text);
+        String text1 = br.readLine();
+        System.out.println(text1);
+        String text2 = br.readLine();
+        System.out.println(text2);
     }
 
 }
