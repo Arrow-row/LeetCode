@@ -1,13 +1,13 @@
 int searchInsert(int* nums, int numsSize, int target){
     int left=0,right=numsSize-1,mid;
     while(left<=right){
-        if(target<nums[0])  //处理边界值
+        /*if(target<nums[0])  //不用单独处理边界值
             return 0;
-        if(target>nums[numsSize-1]) //处理边界值
-            return numsSize;
+        if(target>nums[numsSize-1]) 
+            return numsSize;*/
         mid=(left+right)/2; //二分法找到target最近的mid
                             //如果target==nums[mid],返回mid,否则返回left()
-                            //主要理解下插入位置是left+1的地方，与right关系不大
+                            //主要理解下，插入位置始终是left+1的地方，与right关系不大
 
         if(nums[mid]<target){
             left=mid+1;
@@ -22,3 +22,4 @@ int searchInsert(int* nums, int numsSize, int target){
 
     }
     return 0;
+}
