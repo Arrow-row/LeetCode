@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-
-int removeElement_2(int* nums, int numsSize, int val){         
+//双指针
+//最坏情况下（输入数组中没有元素等于val），左右指针各遍历了数组一次
+int removeElement_1(int* nums, int numsSize, int val){         
 	int slow=0;//可以覆盖的位置         
 	int fast=0;//搜索指针
 	while(fast<numsSize){
@@ -14,6 +15,21 @@ int removeElement_2(int* nums, int numsSize, int val){
 	return slow;
 }
 
+
+//双指针优化
+//两个指针在最坏情况下合起来只遍历数组一次
+int removeElement_2(int* nums, int numsSize, int val){
+	int left=0,right=numsSize;
+	while(left<right){		//left和right重合时，左右指针遍历完数组中所有元素	
+		if (nums[left]==val){	//若nums[left]==val，则将right指向的元素左值到左边，right--，直到复制过来的元素不等于val为止
+			nums[left]=nums[right-1];
+			right--;
+		}
+		else
+			left++;
+	}
+	return left;
+}
 
 int main(){
 	int nums[]={0,1,2,2,3,0,4,2};
